@@ -1,19 +1,25 @@
 var questions = document.querySelectorAll(".question");
 var cursor = 0;
+var correctAnswers = ["0", "1", "0", "2"];
 
 var showQuestion = function (){
     for (var question of questions){
-      if (questions.dataset.index != cursor)
-        question.style.display = "none";
-        
+      if (question.dataset.index != cursor){
+      question.style.display = "none";
+      }else{
+      question.style.display = "block";
+      }
     }
 }
  
   var advance = function(event) {
-    var element = event.event;
-    
-    if (element.matches('question')){
-      if (cursor < questions.length - 1) {
+    var element = event.target;
+    if (element.matches('.question button')){
+      var answer = element.dataset.choice === correctAnswers[cursor];
+      console.log(element.dataset.choice);
+      console.log(correctAnswers[cursor]);
+      if (cursor < questions.length) {
+        console.log(answer);
         cursor++;
     }
   }
