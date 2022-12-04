@@ -19,33 +19,42 @@ var showQuestion = function (){
     if (element.matches('.question button')){
       var answer = element.dataset.answer === correctAnswers[cursor];
       
+    
+      
       if (cursor < questions.length) {
-        if  (answer === true)
-        alert = "Correct!"
         cursor++;
+          if  (answer === true)
+        alert = "Correct!"
        } else{
         alert = "Incorrect!"
        
         // timer reduction here
-        cursor++;
     }
   }
     showQuestion();
 }
 
-var startingTime = 60;
 
-function displayTime(seconds) {
+
+function showTime(seconds) {
   countdownEl.textContent = "Time Remaining: " + seconds;
  } 
 
  function countdown() {
-   displayTime(timeRemaining);
-   var timeDecrement = setInterval(function () {
-    timeDecrement--;
+    var startTime = 10;  
+   showTime(startTime);
+   var timeInterval = setInterval(function () {
+    startTime--;
+    showTime(startTime);
+    if (startTime === 0) {
+      clearInterval(timeInterval);
+      // displayMessage();
+      countdownEl.textContent = "";
    }
+  }, 1000);
 }
 
+countdown();
 
   document.addEventListener('click', advance);
 
