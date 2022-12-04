@@ -14,6 +14,7 @@ var showQuestion = function (){
  
   var advance = function(event) {
     var element = event.target;
+    // console.log(element);
     if (element.matches('.question button')){
       var answer = element.dataset.choice === correctAnswers[cursor];
       console.log(element.dataset.choice);
