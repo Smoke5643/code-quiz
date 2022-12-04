@@ -1,6 +1,8 @@
 var questions = document.querySelectorAll(".question");
 var cursor = 0;
 var correctAnswers = ["0", "1", "0", "2"];
+var countdownEl = document.getElementById('timer');
+
 
 var showQuestion = function (){
     for (var question of questions){
@@ -16,15 +18,26 @@ var showQuestion = function (){
     var element = event.target;
     // console.log(element);
     if (element.matches('.question button')){
-      var answer = element.dataset.choice === correctAnswers[cursor];
-      console.log(element.dataset.choice);
-      console.log(correctAnswers[cursor]);
+      var answer = element.dataset.answer === correctAnswers[cursor];
+      // console.log(element.dataset.answer);
+      // console.log(correctAnswers[cursor]);
       if (cursor < questions.length) {
-        console.log(answer);
+        // console.log(answer);
+        if  (answer === true)
+        alert = "Correct!"
+        cursor++;
+       } else{
+        alert = "Incorrect!"
+       
+        // timer reduction here
         cursor++;
     }
   }
     showQuestion();
+
+    function displayTime(seconds) {
+     countdownEl.textContent = "Time Remaining: ";
+    }  
   };
 
   document.addEventListener('click', advance);
