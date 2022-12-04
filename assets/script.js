@@ -16,13 +16,10 @@ var showQuestion = function (){
  
   var advance = function(event) {
     var element = event.target;
-    // console.log(element);
     if (element.matches('.question button')){
       var answer = element.dataset.answer === correctAnswers[cursor];
-      // console.log(element.dataset.answer);
-      // console.log(correctAnswers[cursor]);
+      
       if (cursor < questions.length) {
-        // console.log(answer);
         if  (answer === true)
         alert = "Correct!"
         cursor++;
@@ -34,11 +31,21 @@ var showQuestion = function (){
     }
   }
     showQuestion();
+}
 
-    function displayTime(seconds) {
-     countdownEl.textContent = "Time Remaining: ";
-    }  
-  };
+var startingTime = 60;
+
+function displayTime(seconds) {
+  countdownEl.textContent = "Time Remaining: " + seconds;
+ } 
+
+ function countdown() {
+   displayTime(timeRemaining);
+   var timeDecrement = setInterval(function () {
+    timeDecrement--;
+   }
+}
+
 
   document.addEventListener('click', advance);
 
