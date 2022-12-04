@@ -28,7 +28,7 @@ var showQuestion = function (){
        } else{
         alert = "Incorrect!"
        
-        // timer reduction here
+        
     }
   }
     showQuestion();
@@ -41,18 +41,19 @@ function showTime(seconds) {
  } 
 
  function countdown() {
-    var startTime = 10;  
+    var startTime = 60;  
    showTime(startTime);
    var timeInterval = setInterval(function () {
     startTime--;
     showTime(startTime);
     if (startTime === 0) {
       clearInterval(timeInterval);
-      // displayMessage();
       countdownEl.textContent = "";
    }
   }, 1000);
 }
+
+
 
 countdown();
 
