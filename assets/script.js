@@ -2,6 +2,7 @@ var questions = document.querySelectorAll(".question");
 var cursor = 0;
 var correctAnswers = ["0","0", "1", "0", "2"];
 var countdownEl = document.getElementById("timer");
+var startTime = 60; 
 
 var showQuestion = function (){
     for (var question of questions){
@@ -19,7 +20,9 @@ var showQuestion = function (){
       var answer = element.dataset.answer === correctAnswers[cursor];
       if (cursor < questions.length) {
         cursor++;
-        console.log(answer)
+      if (answer === false){
+        startTime -= 5;
+      }
     }
   }
     showQuestion();
@@ -32,8 +35,7 @@ function showTime(seconds) {
  } 
 
  function countdown() {
-    var startTime = 60;  
-   showTime(startTime);
+    showTime(startTime);
    var timeInterval = setInterval(function () {
     startTime--;
     showTime(startTime);
