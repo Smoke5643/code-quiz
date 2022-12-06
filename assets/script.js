@@ -1,8 +1,7 @@
 var questions = document.querySelectorAll(".question");
 var cursor = 0;
-var correctAnswers = ["0", "1", "0", "2"];
-var countdownEl = document.getElementById('timer');
-
+var correctAnswers = ["0","0", "1", "0", "2"];
+var countdownEl = document.getElementById("timer");
 
 var showQuestion = function (){
     for (var question of questions){
@@ -18,17 +17,9 @@ var showQuestion = function (){
     var element = event.target;
     if (element.matches('.question button')){
       var answer = element.dataset.answer === correctAnswers[cursor];
-      
-    
-      
       if (cursor < questions.length) {
         cursor++;
-          if  (answer === true)
-        alert = "Correct!"
-       } else{
-        alert = "Incorrect!"
-       
-        
+        console.log(answer)
     }
   }
     showQuestion();
