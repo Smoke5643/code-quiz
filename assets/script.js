@@ -21,7 +21,7 @@ var showQuestion = function (){
       if (cursor < questions.length) {
         cursor++;
       if (answer === false){
-        startTime -= 5;
+        startTime -= 15;
       }
     }
   }
@@ -42,6 +42,7 @@ function showTime(seconds) {
     if (startTime === 0) {
       clearInterval(timeInterval);
       countdownEl.textContent = "";
+      alert("Time is up!")
    }
   }, 1000);
 }
