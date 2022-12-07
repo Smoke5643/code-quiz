@@ -13,6 +13,6 @@ This application was designed to showcase knowledge in Javascript and WebAPI's w
 
 ## Visuals
 
-Preview of the code quiz
+Preview of the Code Quiz
 
 ![image](assets/images/screenshot.png)
